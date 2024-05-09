@@ -1,0 +1,42 @@
+.nav{
+    position: relative;
+    border: 2px solid black;
+    background-color: aliceblue;
+    height: 50px;
+    width: 100%;  
+    padding-top: 12px;
+}
+
+#showButton{
+    position: fixed;
+    border-radius: 2px ;
+    padding:2px;
+    right: 10px;
+}
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    background: aliceblue;
+    transition: left 0.3s ease;
+    display: grid;
+    padding: 15px ;
+    gap: 25px;
+    height: max-content;
+    border: 2px solid black;
+}
+.sidebar a{
+    text-decoration: none;
+    color: black;
+}
+.sidebar.show {
+    left: 0; 
+}
+.side{
+    display: flex;
+    justify-content: space-between;
+}
+#hideButton{
+    margin-top: 20px;
+}

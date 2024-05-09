@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our reviews</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        *{
+            padding:0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+     
+        body{
+            background-color: var(--light);
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            height: 100vh;
+            flex-direction: column;
+        
+        }
+        .main_container{
+            background-color: var(--white);
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px var(--dark-blue);
+            /* margin-left: 30px; */
+            margin-top: 60px;
+        }
+        .card_container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        
+        }
+        
+        .image-container img{
+            width:170px ;
+            border-radius:50% ;
+            box-shadow: 0px 0px 10px var(--blue);
+            margin-bottom: 20px;
+        }
+        #job_title{
+            font-size: 18px;
+            color: var(--light-blue);
+        }
+        .name{
+            font-size: 15px;
+            /* padding: 6px; */
+            margin-bottom: 3px;
+        }
+        #description{
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #prev_button,#next_button{
+            color: var(--light-blue);
+            font-size: 20px;
+            padding: 20px;
+        }
+        .h2{
+            font-size: 40px;
+            font-weight: 900;
+        }
+        .main_container{
+            width: 60%;
+            height: 500px;
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: 0 0 4px  rgb(57, 219, 25);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        
+          }
+          .card_container{
+            height: 100%;
+            width: 100%;
+            transition: transform 1s ease; /* Updated transition property */
+            position: absolute;
+          }
+    </style>
+</head>
+<body>
+    <h2>Our Reviews</h2>
+    <div class="main_container">
+
+        
+        <div class="card_container">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/280x280_RS/a6/24/4d/a6244d9779087326a2a8b4cde275ea0a.jpg" alt="">
+            </div>
+            <h4 class="name">SARA</h4>
+            <p class="job_title">UI Designer</p>
+            <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, sit eum perferendis ipsam asperiores.</p>
+            <div class="button">
+                <button class="prev_button"><span class="glyphicon glyphicon-menu-left"></span></button>
+                <button class="next_button"><span class="glyphicon glyphicon-menu-right"></span></button>
+            </div>
+        </div><br>
+        <div class="card_container">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/280x280_RS/a6/24/4d/a6244d9779087326a2a8b4cde275ea0a.jpg" alt="">
+            </div>
+            <h4 class="name">MEENA</h4>
+            <p class="job_title">Web developerr</p>
+            <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, sit eum perferendis ipsam asperiores.</p>
+            <div class="button">
+                <button class="prev_button"><span class="glyphicon glyphicon-menu-left"></span></button>
+                <button class="next_button"><span class="glyphicon glyphicon-menu-right"></span></button>
+            </div>
+        </div>
+        <div class="card_container">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/280x280_RS/a6/24/4d/a6244d9779087326a2a8b4cde275ea0a.jpg" alt="">
+            </div>
+            <h4 class="name">SAMEERA</h4>
+            <p class="job_title">UI Designer</p>
+            <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, sit eum perferendis ipsam asperiores.</p>
+            <div class="button">
+                <button class="prev_button"><span class="glyphicon glyphicon-menu-left"></span></button>
+                <button class="next_button"><span class="glyphicon glyphicon-menu-right"></span></button>
+            </div>
+        </div> 
+    </div>
+    
+    <script>
+        const prevButton = document.querySelectorAll(".prev_button");
+        const nextButton = document.querySelectorAll(".next_button");
+        const cardContainers = document.querySelectorAll(".card_container");
+        const imageContainers = document.querySelectorAll(".image_container");
+    
+        let currentIndex = 0;
+        const maxIndex = cardContainers.length - 1;
+    
+        prevButton.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex=currentIndex-1;
+                    updateDisplay();
+                }
+            });
+        });
+    
+        nextButton.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (currentIndex < maxIndex) {
+                    currentIndex=currentIndex+1;
+                    updateDisplay();
+                }
+            });
+        });
+    
+        function updateDisplay() {
+            cardContainers.forEach((card, index) => {
+                card.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            });
+        }
+    </script>
+</body>
+</html>
